@@ -1,5 +1,5 @@
 with import <nixpkgs> {};
-
+# I Should write a deriviation for the Zeit-now binary. It needs some patch-elfing.
 stdenv.mkDerivation {
     name = "sanity-creuna";
     buildInputs = [

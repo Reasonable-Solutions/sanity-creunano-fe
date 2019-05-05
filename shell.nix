@@ -3,6 +3,7 @@ with import <nixpkgs> {};
 stdenv.mkDerivation {
     name = "sanity-creuna";
     buildInputs = [
+        nodePackages.prettier
         jq
         nodejs-10_x
     ];
@@ -10,5 +11,6 @@ stdenv.mkDerivation {
         export npm_config_prefix="$PWD/.npm-packages"
         export PATH="$PWD/.npm-packages/bin:$PATH"
         alias scripts='jq ".scripts" package.json'
+        scripts
     '';
 }

@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
 import sanityClient from "../lib/sanity";
 
-const query = `*[_type == "jobAd"]{title, subtitle, mainImage}`;
+const query = `*[_type == "jobAd"]{_id, title, subtitle, mainImage}`;
 
 export default class WorkAt extends React.Component {
   static async getInitialProps() {
@@ -18,10 +18,12 @@ export default class WorkAt extends React.Component {
         <ul>
           {this.props.jobAds.map(ad => (
             <li>
-              <div>
-                <h1>{ad.title}</h1>
-                <p>{ad.subtitle}</p>
-              </div>
+              <Link href={{ pathname: "/work-ad", query: { id: ad._id } }}>
+                <div>
+                  <h1>{ad.title}</h1>
+                  <p>{ad.subtitle}</p>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>

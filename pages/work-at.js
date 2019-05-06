@@ -24,7 +24,9 @@ export default class WorkAt extends React.Component {
           {this.props.jobAds.map(ad => (
             <li>
               <Link href={{ pathname: "/work-ad", query: { id: ad._id } }}>
+                  <div>
                   <JobCard {...ad}/>
+                  </div>
               </Link>
             </li>
           ))}

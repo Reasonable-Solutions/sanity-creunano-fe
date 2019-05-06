@@ -15,11 +15,6 @@ function imageUrlFor(source) {
 
 const query = `*[_type == "person"] {name, bio, _id}[0...50]
 `;
-const serializers = {
-  types: {
-    block: props => <p> {props.children} </p>
-  }
-};
 
 export default class Movies extends React.Component {
   static async getInitialProps() {
@@ -32,21 +27,7 @@ export default class Movies extends React.Component {
     const { person } = this.props;
     return (
       <Layout>
-        <div className="people">
-          <ul className="list">
-            {person.map(p => (
-              <li key={p._id}>
-                <Link href={{ url: "foo" }}>
-                  <div>
-                    <h1> {p.name} </h1>
-                    <BlockContent blocks={p.bio} serializers={serializers} />
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <style jsx>{styles}</style>
+            <h1>Real memes, real fast</h1>
       </Layout>
     );
   }

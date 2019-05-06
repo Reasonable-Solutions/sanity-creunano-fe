@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import globalStyles from "./styles/global";
 import styles from "./styles/layout";
-import Header from "../components/header.js";
+import Header from "../components/header";
 export default props => (
   <div>
     <Head>

@@ -11,7 +11,7 @@ _id,
  title,
  subtitle,
  body,
- mainImage,
+ "imageUrl": mainImage.asset->url,
  "contact":author -> {name},
  externalLink
  }[0]`;

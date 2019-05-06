@@ -8,7 +8,7 @@ export default css`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  align-self: center;
 }
 
 .header-logo__background {

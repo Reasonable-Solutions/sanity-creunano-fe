@@ -11,8 +11,15 @@ header {
   display: flex;
   flex-direction: column;
   filter: invert(100%);
-  height: 100vh;
+  min-height: 300px;
+  height: 50vh;
   background: white;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 calc(100% - 6vw)
+  );
 }
 `

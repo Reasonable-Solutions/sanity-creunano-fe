@@ -5,11 +5,11 @@ import style from "./styles/headerLogo";
 export default class Header extends React.Component {
   render() {
     return (
-      <div className="header-logo">
+      <div className="main">
         <svg
           viewBox="0 -10 240 80"
           xmlns="http://www.w3.org/2000/svg"
-          class="header-logo__background"
+          className="background"
         >
           <rect width="100%" height="140" fill="white" />
           <text
@@ -21,7 +21,7 @@ export default class Header extends React.Component {
             Creuna
           </text>
         </svg>
-        <div className="header-logo__text">
+        <div className="text">
           <h1>REAL MEMES REAL WEB REAL FAST REAL GOOD REAL REEL</h1>
         </div>
         <style jsx>{style}</style>

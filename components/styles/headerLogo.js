@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-.header-logo {
+.main {
   position: fixed;
   width: 666px;
   height: 100%;
@@ -11,15 +11,15 @@ export default css`
   align-self: center;
 }
 
-.header-logo__background {
+.background {
   position: absolute;
 }
 
-.header-logo__text {
+.text {
   font-weight: 900;
   font-size: 20px;
 }
-.header-logo__text h1 {
+.text h1 {
   mix-blend-mode: difference;
   color: white;
   margin-left: 1rem;

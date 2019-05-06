@@ -24,7 +24,7 @@ export default class Header extends React.Component {
         <div className="header-logo__text">
           <h1>REAL MEMES REAL WEB REAL FAST REAL GOOD REAL REEL</h1>
         </div>
-        <style>{style}</style>
+        <style jsx>{style}</style>
       </div>
     );
   }

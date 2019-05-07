@@ -11,7 +11,7 @@ export default props => (
       <title>Sanity + Creuna Poc</title>
     </Head>
     <Header />
-    <main style={{ margin: "0 2rem" }}>{props.children}</main>
+    <main>{props.children}</main>
     <footer>And this here is the footer</footer>
     <style jsx>{styles}</style>
     <style jsx global>

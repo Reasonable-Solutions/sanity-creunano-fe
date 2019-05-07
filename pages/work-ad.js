@@ -16,7 +16,7 @@ _id,
  externalLink
  }[0]`;
 
-export default class WorkAt extends React.Component {
+export default class WorkAd extends React.Component {
   static async getInitialProps(req) {
     return { ad: await sanity.fetch(query, { id: req.query.id }) };
   }

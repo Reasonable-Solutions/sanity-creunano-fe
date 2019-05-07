@@ -25,12 +25,4 @@ nav {
   background-color: #333;
   font-size: 1rem;
   height: 3.5rem;
-}
-
-nav a {
-  flex-grow: 1;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-}
-`
+}`

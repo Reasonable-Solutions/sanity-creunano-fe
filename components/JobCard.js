@@ -6,11 +6,11 @@ export default class JobCard extends React.Component {
   render() {
     return (
       <div className="content">
-        <Link href={{ pathname: "/work-ad", query: { id: this.props._id } }}>
-          <a>
-            <h2 className="link">{this.props.title}</h2>
-          </a>
-        </Link>
+        <h2 className="link">
+          <Link href={{ pathname: "/work-ad", query: { id: this.props._id } }}>
+            <a>{this.props.title}</a>
+          </Link>
+        </h2>
         <p>{this.props.subtitle}</p>
 
         <style jsx>{style}</style>

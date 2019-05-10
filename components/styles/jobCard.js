@@ -8,11 +8,19 @@ export default css`
   margin: 20px;
 }
 
+a {
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+a :hover {
+  color: white;
+}
+
 h2 {
   background: transparent;
   color: black;
-  border-bottom: 1px solid black;
-  text-decoration: none;
   display: inline-block;
 }
 

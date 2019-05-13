@@ -5,8 +5,14 @@ import Layout from "../components/Layout";
 import BlockContent from "@sanity/block-content-to-react";
 import sanity from "../lib/sanity";
 import sanityClient from "../lib/sanity";
+import styles from "./styles/work-ad.js";
+import imageUrlBuilder from "@sanity/image-url";
 
-const query = `*[_type == "jobAd" && _id==$id]{
+let builder = imageUrlBuilder(sanityClient);
+
+let mkUrl = source => builder.image(source);
+
+let query = `*[_type == "jobAd" && _id==$id]{
 _id,
  title,
  subtitle,
@@ -23,13 +29,25 @@ export default class WorkAd extends React.Component {
 
   render() {
     const { ad } = this.props;
-    console.log(this.props);
     return (
       <Layout>
-        <h1>{ad.title}</h1>
-        <p>{ad.subtitle}</p>
-        <BlockContent blocks={ad.body} />
-        <a href={ad.externalLink}>apply here</a>
+        <div className="hero-wrapper">
+          <div className="hero">
+            <div className="hero-content">
+              <h1>{ad.title}</h1>
+              <p>{ad.subtitle}</p>
+            </div>
+            <div
+              className="hero-media"
+              style={{ backgroundImage: `url(${mkUrl(ad.imageUrl)})` }}
+            />
+          </div>
+        </div>
+        <div className="jobAd">
+          <BlockContent blocks={ad.body} />
+          <a href={ad.externalLink}>apply here</a>
+        </div>
+        <style jsx>{styles}</style>
       </Layout>
     );
   }

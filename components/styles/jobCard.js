@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-.content {
+div {
   width: 100%;
   padding: 10px 40px;
   background: white;
@@ -11,11 +11,7 @@ export default css`
 a {
   border-bottom: 1px solid black;
   text-decoration: none;
-  color: black;
-}
-
-a :hover {
-  color: white;
+  color: inherit;
 }
 
 h2 {
@@ -24,7 +20,7 @@ h2 {
   display: inline-block;
 }
 
-h2 :hover{
+h2 :hover {
   background: black;
   color: white;
   border-bottom: 1px solid white;

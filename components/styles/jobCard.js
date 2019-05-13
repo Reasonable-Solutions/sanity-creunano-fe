@@ -6,7 +6,7 @@ export default css`
     flex: 1;
     padding: 10px;
     background: white;
-    margin: 20px;
+    margin: 20px 0;
   }
 
   a {
@@ -30,7 +30,8 @@ export default css`
 
   @media screen and ${breakpoints.small} {
     div {
-      padding: 10px 40px;
+      padding: 10px 20px;
+      margin: 20px;
     }
   }
 `;

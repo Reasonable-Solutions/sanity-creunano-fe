@@ -8,10 +8,18 @@ export default class Header extends React.Component {
     return (
       <header>
         <nav>
-          <Link href="/work-at">Work at Creuna</Link>
-          <Link href="/events">Events</Link>
-          <Link href="/contact">Contact us</Link>
-          <Link href="/news">News</Link>
+          <Link href="/work-at">
+            <a>Work at Creuna</a>
+          </Link>
+          <Link href="/events">
+            <a>Events</a>
+          </Link>
+          <Link href="/contact">
+            <a>Contact us</a>
+          </Link>
+          <Link href="/news">
+            <a>News</a>
+          </Link>
         </nav>
       </header>
     );

@@ -23,7 +23,7 @@ export default class WorkAt extends React.Component {
         <div style={{ background: "whitesmoke" }}>
           <ul>
             {this.props.jobAds.map(ad => (
-              <li>
+              <li key={ad._id}>
                 <JobCard {...ad} />
               </li>
             ))}

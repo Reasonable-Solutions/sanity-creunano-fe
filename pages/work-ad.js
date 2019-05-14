@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import Layout from "../components/Layout";
-
 import BlockContent from "@sanity/block-content-to-react";
+import Link from "next/link";
+import React from "react";
+import imageUrlBuilder from "@sanity/image-url";
+
+import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
 import sanityClient from "../lib/sanity";
 import styles from "./styles/work-ad.js";
-import imageUrlBuilder from "@sanity/image-url";
 
 let builder = imageUrlBuilder(sanityClient);
 
@@ -37,10 +37,30 @@ export default class WorkAd extends React.Component {
               <h1>{ad.title}</h1>
               <p>{ad.subtitle}</p>
             </div>
-            <div
-              className="hero-media"
-              style={{ backgroundImage: `url(${mkUrl(ad.imageUrl)})` }}
-            />
+            <picture className="hero-media">
+              <source
+                media="(max-width: 400px)"
+                srcSet={mkUrl(ad.imageUrl)
+                  .width(800)
+                  .url()}
+              />
+              <source
+                media="(max-width: 799px)"
+                srcSet={mkUrl(ad.imageUrl)
+                  .width(800)
+                  .url()}
+              />
+              <source
+                media="(min-width: 800px)"
+                srcSet={mkUrl(ad.imageUrl).url()}
+              />
+              <img
+                className="hero-image"
+                role="presentation"
+                alt=""
+                src={mkUrl(ad.imageUrl)}
+              />
+            </picture>
           </div>
         </div>
         <div className="jobAd">

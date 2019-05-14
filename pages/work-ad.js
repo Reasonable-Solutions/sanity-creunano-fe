@@ -54,7 +54,12 @@ export default class WorkAd extends React.Component {
                 media="(min-width: 800px)"
                 srcSet={mkUrl(ad.imageUrl).url()}
               />
-              <img className="hero-image" src={mkUrl(ad.imageUrl)} />
+              <img
+                className="hero-image"
+                role="presentation"
+                alt=""
+                src={mkUrl(ad.imageUrl)}
+              />
             </picture>
           </div>
         </div>

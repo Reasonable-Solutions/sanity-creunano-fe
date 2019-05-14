@@ -29,7 +29,7 @@ export default css`
     z-index: 1;
   }
 
-.hero-image { object-fit: cover; width: 100;}
+.hero-image { object-fit: cover; width: 100%;}
 .hero-media {
         display: flex;
 	position: absolute;

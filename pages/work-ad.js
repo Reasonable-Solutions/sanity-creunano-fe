@@ -3,12 +3,13 @@ import Link from "next/link";
 import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 
+import PersonCard from "../components/personCard";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
 import sanityClient from "../lib/sanity";
 import styles from "./styles/work-ad.js";
 
-let builder = imageUrlBuilder(sanityClient);
+let builder = imageUrlBuilder(sanity);
 
 let mkUrl = source => builder.image(source);
 
@@ -18,7 +19,7 @@ _id,
  subtitle,
  body,
  "imageUrl": mainImage.asset->url,
- "contact":author -> {name},
+ "contact":author -> {name, email, phone, "image": image.asset->url},
  externalLink
  }[0]`;
 
@@ -41,7 +42,7 @@ export default class WorkAd extends React.Component {
               <source
                 media="(max-width: 400px)"
                 srcSet={mkUrl(ad.imageUrl)
-                  .width(800)
+                  .width(400)
                   .url()}
               />
               <source
@@ -64,8 +65,11 @@ export default class WorkAd extends React.Component {
           </div>
         </div>
         <div className="jobAd">
-          <BlockContent blocks={ad.body} />
-          <a href={ad.externalLink}>apply here</a>
+          <div style={{ paddingRight: "80px" }}>
+            <BlockContent blocks={ad.body} />
+            <a href={ad.externalLink}>apply here</a>
+          </div>
+          <PersonCard {...this.props.ad.contact} />
         </div>
         <style jsx>{styles}</style>
       </Layout>

@@ -8,29 +8,11 @@ export default props => (
         <p>{props.subtitle}</p>
       </div>
       <picture className="hero-media">
-        <source
-          media="(max-width: 400px)"
-          srcSet={props
-            .mkUrl(props.imageUrl)
-            .width(400)
-            .url()}
-        />
-        <source
-          media="(max-width: 799px)"
-          srcSet={props
-            .mkUrl(props.imageUrl)
-            .width(800)
-            .url()}
-        />
-        <source
-          media="(min-width: 800px)"
-          srcSet={props.mkUrl(props.imageUrl).url()}
-        />
         <img
           className="hero-image"
           role="presentation"
           alt=""
-          src={props.mkUrl(props.imageUrl)}
+          src={props.mkUrl ? props.mkUrl(props.imageUrl) : props.imageUrl}
         />
       </picture>
     </div>

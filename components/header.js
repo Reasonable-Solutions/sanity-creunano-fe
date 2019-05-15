@@ -21,6 +21,7 @@ export default class Header extends React.Component {
             <a>News</a>
           </Link>
         </nav>
+        <style jsx>{style}</style>
       </header>
     );
   }

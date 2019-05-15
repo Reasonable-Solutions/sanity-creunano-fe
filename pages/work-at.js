@@ -3,7 +3,6 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import JobCard from "../components/JobCard";
 import sanity from "../lib/sanity";
-import sanityClient from "../lib/sanity";
 import styles from "./styles/work-at";
 
 const query = `*[_type == "jobAd"]{
@@ -13,13 +12,18 @@ _id,
  "imageUrl": mainImage.asset->url,
  }`;
 
+const videoQuery = `*[_type == "backgroundVideo"]{description, "url": video.asset->url}[0]`;
+
 export default class WorkAt extends React.Component {
   static async getInitialProps() {
-    return { jobAds: await sanity.fetch(query) };
+    return {
+      jobAds: await sanity.fetch(query),
+      video: await sanity.fetch(videoQuery)
+    };
   }
   render() {
     return (
-      <Layout>
+      <Layout videoUrl={this.props.video.url}>
         <div style={{ background: "whitesmoke" }}>
           <ul>
             {this.props.jobAds.map(ad => (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import globalStyles from "./styles/global";
 import styles from "./styles/layout";
 import Header from "../components/header";
+import Footer from "../components/Footer";
 export default props => (
   <div>
     <Head>
@@ -12,7 +13,7 @@ export default props => (
     </Head>
     <Header />
     <main>{props.children}</main>
-    <footer>And this here is the footer</footer>
+    <Footer videoUrl={props.videoUrl} />
     <style jsx>{styles}</style>
     <style jsx global>
       {globalStyles}

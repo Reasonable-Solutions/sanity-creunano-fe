@@ -16,9 +16,7 @@ export default css`
   }
 
   .hero-wrapper {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
     flex-direction: column;
     overflow: hidden;
   }

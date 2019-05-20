@@ -28,7 +28,6 @@ export default class Preview extends React.Component {
     return (
       <>
         <h1>Real previews, real fast</h1>
-        {console.log(this.props.url.query)}
         {previewMatch(this.props.url.query.type, this.props.preview)}
       </>
     );

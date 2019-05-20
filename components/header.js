@@ -11,9 +11,6 @@ export default class Header extends React.Component {
           <Link href="/work-at">
             <a>Work at Creuna</a>
           </Link>
-          <Link href="/events">
-            <a>Events</a>
-          </Link>
           <Link href="/contact">
             <a>Contact us</a>
           </Link>
@@ -21,6 +18,7 @@ export default class Header extends React.Component {
             <a>News</a>
           </Link>
         </nav>
+        <style jsx>{style}</style>
       </header>
     );
   }

@@ -22,6 +22,28 @@ _id,
  externalLink
  }[0]`;
 
+let Jobad = props => (
+  <>
+    <div className="hero-wrapper">
+      <div className="hero">
+        <div className="hero-content">
+          <h1>{props.title}</h1>
+          <p>{props.subtitle}</p>
+        </div>
+        <div
+          className="hero-media"
+          style={{ backgroundImage: `url(${mkUrl(props.imageUrl)})` }}
+        />
+      </div>
+    </div>
+    <div className="jobAd">
+      <BlockContent blocks={props.body} />
+      <a href={props.externalLink}>apply here</a>
+    </div>
+    <style jsx>{styles}</style>
+  </>
+);
+
 export default class WorkAd extends React.Component {
   static async getInitialProps(req) {
     return { ad: await sanity.fetch(query, { id: req.query.id }) };
@@ -31,24 +53,10 @@ export default class WorkAd extends React.Component {
     const { ad } = this.props;
     return (
       <Layout>
-        <div className="hero-wrapper">
-          <div className="hero">
-            <div className="hero-content">
-              <h1>{ad.title}</h1>
-              <p>{ad.subtitle}</p>
-            </div>
-            <div
-              className="hero-media"
-              style={{ backgroundImage: `url(${mkUrl(ad.imageUrl)})` }}
-            />
-          </div>
-        </div>
-        <div className="jobAd">
-          <BlockContent blocks={ad.body} />
-          <a href={ad.externalLink}>apply here</a>
-        </div>
-        <style jsx>{styles}</style>
+        <Jobad {...ad} />
       </Layout>
     );
   }
 }
+
+export { Jobad };

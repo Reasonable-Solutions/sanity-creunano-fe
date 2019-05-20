@@ -35,7 +35,7 @@ export default class WorkAd extends React.Component {
       <Layout>
         <Hero {...ad} mkUrl={mkUrl} />
         <div className="jobAd">
-          <div style={{ paddingRight: "80px" }}>
+          <div className="main-text">
             <BlockContent blocks={ad.body} />
             <a href={ad.externalLink}>apply here</a>
           </div>

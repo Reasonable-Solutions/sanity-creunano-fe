@@ -2,6 +2,7 @@ import css from "styled-jsx/css";
 import { breakpoints } from "../../pages/styles/breakpoints.js";
 
 export default css`
+  .main-text { padding-right: 80px; }
   .jobAd {
     display: flex;
     flex-direction: column;

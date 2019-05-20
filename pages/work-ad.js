@@ -1,15 +1,12 @@
 import BlockContent from "@sanity/block-content-to-react";
 import React from "react";
-import imageUrlBuilder from "@sanity/image-url";
 
 import PersonCard from "../components/personCard";
 import Hero from "../components/HeroContent";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
+import sanityClient, {mkUrl} from "../lib/sanity";
 import styles from "./styles/work-ad.js";
-
-let builder = imageUrlBuilder(sanity);
-let mkUrl = source => builder.image(source);
 
 let query = `*[_type == "jobAd" && _id==$id]{
 _id,

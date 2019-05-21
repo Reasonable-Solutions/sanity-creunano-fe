@@ -2,16 +2,22 @@ import css from "styled-jsx/css";
 import { breakpoints } from "../../pages/styles/breakpoints.js";
 
 export default css`
+  .main-text { padding-right: 80px; }
   .jobAd {
+    display: flex;
+    flex-direction: column;
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 30px 60px 30px;
   }
+  @media screen and ${breakpoints.small} {
+    .jobAd {
+      flex-direction: row;
+    }
+  }
 
   .hero-wrapper {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
     flex-direction: column;
     overflow: hidden;
   }
@@ -29,38 +35,27 @@ export default css`
     z-index: 1;
   }
 
-  .hero-media {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-  }
+.hero-image { object-fit: cover; width: 100%;}
+.hero-media {
+        display: flex;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+        opacity: 0.5;
+        width: inherit;
+        min-height: 100%;
+        object-fit: cover;
+}
 
-  .hero-content {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px 30px;
-    position: relative;
-    z-index: 3;
-  }
-
-  .hero-media ::before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    content: "";
-    display: block;
-    background-color: rgba(25, 25, 25, 0.5);
-    z-index: 2;
-  }
-  @media screen and ${breakpoints.small} {
-    .jobAd {
-      padding: 120px 5% 160px 5%;
-    }
-  }
-`;
+.hero-content {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 20px 30px;
+	position: relative;
+	z-index: 3;
+}
+`

@@ -6,6 +6,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import sanityClient from "../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { Jobad } from "./work-ad";
+import PersonCard from "../components/personCard";
 
 export default class Preview extends React.Component {
   static async getInitialProps(req) {
@@ -39,6 +40,6 @@ let previewMatch = (type, preview) => {
     case "jobAd":
       return <Jobad {...preview} />;
     case "person":
-      return <h1>Hi, I'm a person. My name is {preview.name}</h1>;
+      return <PersonCard {...preview} />;
   }
 };

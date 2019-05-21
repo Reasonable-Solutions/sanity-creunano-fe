@@ -3,10 +3,14 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { sanityPreviewClient, queries } from "../lib/sanity";
 import BlockContent from "@sanity/block-content-to-react";
-import sanityClient from "../lib/sanity";
+import sanity from "../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { Jobad } from "./work-ad";
 import PersonCard from "../components/personCard";
+import Hero from "../components/HeroContent";
+
+let builder = imageUrlBuilder(sanity);
+let mkUrl = source => builder.image(source);
 
 export default class Preview extends React.Component {
   static async getInitialProps(req) {
@@ -38,7 +42,12 @@ export default class Preview extends React.Component {
 let previewMatch = (type, preview) => {
   switch (type) {
     case "jobAd":
-      return <Jobad {...preview} />;
+      return (
+        <>
+          <Hero {...preview} mkUrl={mkUrl} />
+          <Jobad {...preview} />
+        </>
+      );
     case "person":
       return <PersonCard {...preview} />;
   }

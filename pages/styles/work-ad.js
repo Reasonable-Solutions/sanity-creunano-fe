@@ -12,9 +12,42 @@ export default css`
     margin: 0 auto;
     padding: 40px 30px 60px 30px;
   }
+  .jobAd-contacts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px -10px;
+    order: 3;
+  }
+  .jobAd-contacts > div > div {
+    width: 50%;
+    padding: 10px;
+  }
+  .jobAd > a:last-of-type {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+    order: 2;
+  }
   @media screen and ${breakpoints.small} {
     .jobAd {
       flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .jobAd > div:first-of-type {
+      flex: 1;
+      padding-right: 80px;
+    }
+
+    .jobAd-contacts {
+      width: 250px;
+      flex-direction: column;
+      order: 2;
+    }
+
+    .jobAd-contacts > div > div {
+      width: 100%;
     }
   }
 `;

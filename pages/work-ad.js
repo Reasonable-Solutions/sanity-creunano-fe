@@ -28,8 +28,10 @@ let Jobad = props => (
   <>
     <div className="jobAd">
       <BlockContent blocks={props.body} />
-      <PersonCard {...props.contact} />
-      <a href={props.externalLink}>Søk på denne stillingen</a>
+      <div class="jobAd-contacts">
+        <PersonCard {...props.contact} />
+      </div>
+      <a href={props.externalLink}>Søk på denne stillingen &#8669;</a>
     </div>
     <style jsx>{styles}</style>
   </>

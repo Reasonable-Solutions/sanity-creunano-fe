@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 import sanity from "../lib/sanity";
@@ -13,11 +12,11 @@ export default class Main extends React.Component {
 
   render() {
     const { video } = this.props;
-      return (
+    return (
       <Layout videoUrl={video.url}>
-              <Footer videoUrl={video.url}/>
-            <h1>Real memes, real fast</h1>
-       </Layout >
+        <Footer videoUrl={video.url} />
+        <h1>Real memes, real fast</h1>
+      </Layout>
     );
   }
 }

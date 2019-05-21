@@ -1,5 +1,4 @@
 import BlockContent from "@sanity/block-content-to-react";
-import Link from "next/link";
 import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -7,11 +6,9 @@ import PersonCard from "../components/personCard";
 import Hero from "../components/HeroContent";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import sanityClient from "../lib/sanity";
 import styles from "./styles/work-ad.js";
 
 let builder = imageUrlBuilder(sanity);
-
 let mkUrl = source => builder.image(source);
 
 let query = `*[_type == "jobAd" && _id==$id]{
@@ -20,9 +17,24 @@ _id,
  subtitle,
  body,
  "imageUrl": mainImage.asset->url,
- "contact":author -> {name, email, phone, "image": image.asset->url},
+ "contacts" :author[] -> {name, email, phone, "image": image.asset->url},
  externalLink
  }[0]`;
+
+let Jobad = props => (
+  <>
+    <div className="jobAd">
+      <BlockContent blocks={props.body} />
+      <div className="jobAd-contacts">
+        {props.contacts.map(contact => (
+          <PersonCard {...contact} key={contact.email} />
+        ))}
+      </div>
+      <a href={props.externalLink}>Søk på denne stillingen &#8669;</a>
+    </div>
+    <style jsx>{styles}</style>
+  </>
+);
 
 export default class WorkAd extends React.Component {
   static async getInitialProps(req) {
@@ -34,15 +46,11 @@ export default class WorkAd extends React.Component {
     return (
       <Layout>
         <Hero {...ad} mkUrl={mkUrl} />
-        <div className="jobAd">
-          <div className="main-text">
-            <BlockContent blocks={ad.body} />
-            <a href={ad.externalLink}>apply here</a>
-          </div>
-          <PersonCard {...this.props.ad.contact} />
-        </div>
+        <Jobad {...ad} />
         <style jsx>{styles}</style>
       </Layout>
     );
   }
 }
+
+export { Jobad };

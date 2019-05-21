@@ -12,22 +12,32 @@ export default css`
     margin: 0 auto;
     padding: 40px 30px 60px 30px;
   }
+
   .jobAd-contacts {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 20px -10px;
+    flex-direction: column;
+    margin: 20px 0px;
     order: 3;
   }
-  .jobAd-contacts > div > div {
-    width: 50%;
-    padding: 10px;
+  .jobAd-contacts > div {
+    width: 100%;
   }
   .jobAd > a:last-of-type {
     width: 100%;
     display: block;
     margin-top: 40px;
     order: 2;
+  }
+
+  @media screen and ${breakpoints.xsmall} {
+    .jobAd-contacts {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .jobAd-contacts > div {
+      width: calc(50% - 10px);
+    }
   }
   @media screen and ${breakpoints.small} {
     .jobAd {
@@ -41,13 +51,21 @@ export default css`
     }
 
     .jobAd-contacts {
-      width: 250px;
+      width: 200px;
       flex-direction: column;
       order: 2;
+      margin: 20px 0;
+      justify-content: flex-start;
     }
 
-    .jobAd-contacts > div > div {
+    .jobAd-contacts > div {
       width: 100%;
+      padding: 0;
+    }
+  }
+  @media screen and ${breakpoints.medium} {
+    .jobAd-contacts {
+      width: 250px;
     }
   }
 `;

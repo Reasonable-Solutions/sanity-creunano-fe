@@ -8,7 +8,7 @@ import sanity, { mkUrl } from "../lib/sanity";
 const videoQuery = `*[_type == "backgroundVideo" ]{description, "url": video.asset->url}[0]`;
 const contentQuery = `*[_type == "article"
                       || _type == "case"
-                      || _type == "jobAd"]{title, "imageUrl": mainImage.asset -> url}`;
+                      || _type == "jobAd"]{title, "cat": categories[0]->{title}, "imageUrl": mainImage.asset -> url}`;
 
 let ContentCard = props => (
   <Link href="">
@@ -31,7 +31,7 @@ let ContentCard = props => (
         </div>
       </div>
       <div className="grid__category">
-        <p>Arbeid</p>
+        <p>{props.cat.title}</p>
       </div>
       <div className="grid__header">
         <h2>{props.title}</h2>
@@ -82,7 +82,7 @@ export default class Main extends React.Component {
           a {
             color: black;
             text-decoration: none;
-          }
+
         `}</style>
       </Layout>
     );

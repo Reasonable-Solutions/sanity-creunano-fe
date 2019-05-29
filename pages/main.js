@@ -48,7 +48,7 @@ let ContentCard = props => (
 export default class Main extends React.Component {
   static async getInitialProps() {
     return {
-      video: await sanity.fetch(videoQuery),
+     video: await sanity.fetch(videoQuery),
       content: await sanity.fetch(contentQuery)
     };
   }

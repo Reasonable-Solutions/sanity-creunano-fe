@@ -5,7 +5,7 @@ import PersonCard from "../components/personCard";
 import Hero from "../components/HeroContent";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import sanityClient, {mkUrl, sanitClient} from "../lib/sanity";
+import sanityClient, { mkUrl, sanitClient } from "../lib/sanity";
 import styles from "./styles/work-ad.js";
 
 let query = `*[_type == "jobAd" && _id==$id]{
@@ -21,7 +21,9 @@ _id,
 let Jobad = props => (
   <div>
     <div className="jobAd">
-      <BlockContent blocks={props.body} />
+      <div className="main-text">
+        <BlockContent blocks={props.body} />
+      </div>
       <div className="jobAd-contacts">
         {props.contacts.map(contact => (
           <PersonCard {...contact} key={contact.email} />

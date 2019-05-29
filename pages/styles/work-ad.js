@@ -64,5 +64,6 @@ export default css`
     .jobAd-contacts {
       width: 250px;
     }
+    .main-text { max-width: 800px; }
   }
 `;

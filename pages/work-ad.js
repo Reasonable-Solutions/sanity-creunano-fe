@@ -19,7 +19,7 @@ _id,
  }[0]`;
 
 let Jobad = props => (
-  <>
+  <div>
     <div className="jobAd">
       <BlockContent blocks={props.body} />
       <div className="jobAd-contacts">
@@ -29,8 +29,8 @@ let Jobad = props => (
       </div>
       <a href={props.externalLink}>Søk på denne stillingen &#8669;</a>
     </div>
-    <style jsx="true">{styles}</style>
-  </>
+    <style jsx>{styles}</style>
+  </div>
 );
 
 export default class WorkAd extends React.Component {
@@ -44,7 +44,7 @@ export default class WorkAd extends React.Component {
       <Layout>
         <Hero {...ad} mkUrl={mkUrl(sanityClient)} />
         <Jobad {...ad} />
-        <style jsx="true">{styles}</style>
+        <style jsx>{styles}</style>
       </Layout>
     );
   }

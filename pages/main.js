@@ -40,6 +40,9 @@ let ContentCard = props => (
         img {
           object-fit: cover;
         }
+        a { color: black; text-decoration: none; }
+
+        a :hover { text-decoration: underline; }
       `}</style>
     </a>
   </Link>
@@ -79,10 +82,6 @@ export default class Main extends React.Component {
             margin: 40px;
             width: 300px;
           }
-          a {
-            color: black;
-            text-decoration: none;
-
         `}</style>
       </Layout>
     );

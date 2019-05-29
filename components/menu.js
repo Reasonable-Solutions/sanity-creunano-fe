@@ -22,7 +22,7 @@ export default props => (
         <line
           id="mid-line"
           fill="none"
-          stroke-width="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"

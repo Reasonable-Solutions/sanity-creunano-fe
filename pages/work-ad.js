@@ -5,7 +5,7 @@ import PersonCard from "../components/personCard";
 import Hero from "../components/HeroContent";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import sanityClient, {mkUrl} from "../lib/sanity";
+import sanityClient, {mkUrl, sanitClient} from "../lib/sanity";
 import styles from "./styles/work-ad.js";
 
 let query = `*[_type == "jobAd" && _id==$id]{
@@ -29,7 +29,7 @@ let Jobad = props => (
       </div>
       <a href={props.externalLink}>Søk på denne stillingen &#8669;</a>
     </div>
-    <style jsx>{styles}</style>
+    <style jsx="true">{styles}</style>
   </>
 );
 
@@ -42,9 +42,9 @@ export default class WorkAd extends React.Component {
     const { ad } = this.props;
     return (
       <Layout>
-        <Hero {...ad} mkUrl={mkUrl} />
+        <Hero {...ad} mkUrl={mkUrl(sanityClient)} />
         <Jobad {...ad} />
-        <style jsx>{styles}</style>
+        <style jsx="true">{styles}</style>
       </Layout>
     );
   }

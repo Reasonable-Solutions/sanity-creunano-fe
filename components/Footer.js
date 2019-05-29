@@ -9,10 +9,10 @@ export default class Events extends React.Component {
         <video
           style={{ opacity: "0.5" }}
           src={this.props.videoUrl}
-          autoPlay="autoplay"
-          muted="true"
-          loop="loop"
-          playsInline="true"
+          autoPlay={"autoplay"}
+          muted={true}
+          loop={"loop"}
+          playsInline={true}
         />
         <style jsx>{style}</style>
       </footer>

@@ -12,7 +12,6 @@ export default css`
     margin: 0 auto;
     padding: 40px 30px 60px 30px;
   }
-
   .jobAd-contacts {
     display: flex;
     flex-direction: column;
@@ -22,7 +21,7 @@ export default css`
   .jobAd-contacts > div {
     width: 100%;
   }
-  .jobAd > a:last-of-type {
+  .jobAd > a :last-of-type {
     width: 100%;
     display: block;
     margin-top: 40px;
@@ -44,8 +43,7 @@ export default css`
       flex-direction: row;
       flex-wrap: wrap;
     }
-
-    .jobAd > div:first-of-type {
+    .jobAd > div :first-of-type {
       flex: 1;
       padding-right: 80px;
     }

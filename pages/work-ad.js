@@ -5,7 +5,7 @@ import PersonCard from "../components/personCard";
 import Hero from "../components/HeroContent";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import sanityClient, { mkUrl, sanitClient } from "../lib/sanity";
+import sanityClient, { mkUrl } from "../lib/sanity";
 import styles from "./styles/work-ad.js";
 
 let query = `*[_type == "jobAd" && _id==$id]{
